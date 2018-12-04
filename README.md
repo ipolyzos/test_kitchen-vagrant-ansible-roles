@@ -1,0 +1,1 @@
+Sample code using [test-kitchen](https://github.com/test-kitchen/test-kitchen) with [Vagrant](https://www.vagrantup.com/) for testing [Ansible](https://github.com/ansible) [roles](https://docs.ansible.com/ansible/2.7/user_guide/playbooks_reuse_roles.html).

@@ -1,0 +1,43 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  # please correct if ansible only provided
+  name: ansible_playbook
+  # Use the latest version on ansible for the test
+  # (please specify the one you wish to test against)
+  ansible_version: latest
+  # It is a good practive to keep logging verbose for
+  # while testing your playbooks, it provide valuable
+  # info
+  ansible_verbose: true
+  # define verbosity level
+  ansible_verbosity: 2
+  require_ansible_repo: true
+  # install ruby on the testing platform 
+  require_ruby_for_busser: true
+  # Playbook configuration
+  name: ansible_playbook
+  # define the host of the testing platform
+  hosts: test-kitchen 
+  # set env to local
+  extra_vars:
+    env: local
+
+busser:
+  # define the ruby execiutable location
+  ruby_bindir: /usr/bin
+
+platforms:
+  - name: ubuntu-16.04
+  - name: centos-7
+
+# testing suites to run against the deployment
+# and verify state
+suites:
+  - name: default
+    driver:
+      network:
+        # define a specific address for the vm
+        - ["private_network", { ip: "192.168.0.2" } ]

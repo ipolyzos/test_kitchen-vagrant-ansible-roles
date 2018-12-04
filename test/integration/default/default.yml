@@ -1,0 +1,10 @@
+---
+- hosts: test-kitchen
+  tasks:
+    - name: echo hello 
+      command: echo 'Hello World'
+    - name: create a folder
+      file: 
+        path: /tmp/test
+        mode: 0755 
+        state: directory
